@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Rubik+Beastly');
+@import url('https://fonts.googleapis.com/css?family=Black+Ops+One');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 * {
 	box-sizing: border-box;
@@ -6,17 +7,97 @@
 
 html,
 body {
-	font-family: Rubik Beastly;
-	font-size: 18px;
+	font-family: Black Ops One;
 	margin: 0;
 	padding: 0;
+	min-height: 100vh;
+	background-color: var(--color-dark);
+	color: var(--color-flat-white);
 }
 header {
-	padding: 1em .5em;
-	background-color: var(--color-dark);
+	padding: 1em;
+	background-color: var(--color-flat-dark);
+	box-shadow: 0 0 calc(2px + .2em) var(--color-darker);
 }
 header > .judul {
+	font-size: 2em;
 	color: var(--color-green);
-	text-shadow: .04em .04em 0 var(--color-dark-green),.08em .08em 0 var(--color-dark-green-darker);
 	margin: 0;
+}
+.konten {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 1em;
+	gap: 1em;
+}
+.card {
+	--card-radius: 5px;
+	background-color: var(--color-card-dark);
+	border-radius: var(--card-radius);
+	overflow: hidden;
+	flex-basis: 30%;
+}
+.card-header {
+	font-size: 1.3em;
+	margin: 0;
+	padding: 1em;
+	background-color: rgba(0, 0, 0, .15);
+	text-align: center;
+}
+.card .card-konten {
+	font-family: Raleway;
+
+	padding: 1em;
+}
+.card-konten form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: .5em;
+}
+.form-input-container {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.form-input-container > * {
+	flex: 1;
+}
+.form-input-container > input,
+.form-input-container > button {
+	background-color: rgba(var(--color-flat-white-rgb),.8);
+	border: 2px solid var(--color-flat-dark);
+	border-radius: var(--card-radius);
+	padding: .5em;
+	font-size: .8em;
+	outline: none;
+}
+.form-input-container > button,
+.form-input-container > label,
+.form-input-container > label > input[type=checkbox] {
+	cursor: pointer;
+}
+.form-input-container > input:hover,
+.form-input-container > input:focus,
+.form-input-container > button:hover {
+	background-color: rgb(var(--color-flat-white-rgb));
+}
+button > .flag {
+	font-weight: bold;
+}
+
+/*
+ * Responsive style
+ */
+@media only screen and (max-width: 1120px) {
+	.form-input-container {
+		flex-direction: column;
+		align-items: unset;
+	}
+}
+@media only screen and (max-width: 640px) {
+	.card {
+		flex-basis: 100%;
+	}
 }
