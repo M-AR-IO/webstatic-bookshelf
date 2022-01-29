@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik+Beastly');
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	font-family: Rubik Beastly;
+	font-size: 18px;
+	margin: 0;
+	padding: 0;
+}
+header {
+	padding: 1em .5em;
+	background-color: var(--color-dark);
+}
+header > .judul {
+	color: var(--color-green);
+	text-shadow: .04em .04em 0 var(--color-dark-green),.08em .08em 0 var(--color-dark-green-darker);
+	margin: 0;
+}
