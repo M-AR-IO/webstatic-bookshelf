@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css?family=Black+Ops+One');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('./style.css');
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	font-family: Black Ops One;
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	font-size: var(--root-font-size);
+	background-color: rgb(var(--color-background-rgb));
+	color: rgb(var(--color-text-rgb));
+}
+/* Style untuk header dan judul halaman */
+header {
+	padding: var(--padding);
+	background-color: rgb(var(--color-background-header-rgb));
+	box-shadow: 0 0 8px var(--color-shadow);
+	display: flex;
+	align-items: center;
+}
+header > .judul {
+	flex-grow: 1;
+	font-size: 2em;
+	color: rgb(var(--color-header-rgb));
+	margin: 0;
+}
+/* Style untuk card container */
+.konten {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(500px,100%),1fr));
+	padding: var(--padding);
+	gap: var(--padding);
+	align-items: baseline;
+}
+/* Style card */
+.card {
+	--card-radius: 5px;
+	border-radius: var(--card-radius);
+	overflow: hidden;
+	padding: 1px;
+	background: linear-gradient(-45deg, rgba(var(--color-card-rgb), .7), rgba(var(--color-card-glow-rgb),.6));
+	box-shadow: -1px -1px 6px rgba(var(--color-card-glow-rgb), 0.6), 2px 2px 12px var(--color-shadow);
+}
+.card-inner {
+	background-color: rgb(var(--color-card-rgb));
+	border-radius: var(--card-radius);
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+/* Style header card */
+.card-header {
+	color: rgb(var(--color-card-header-rgb));
+	font-size: 1.3em;
+	margin: 0;
+	padding: .5em;
+	background-color: rgba(var(--color-card-background-header-rgb), .15);
+	text-align: center;
+	/* Styling header untuk menampilkan icon sampah dan icon lain */
+	display: flex;
+	flex-direction: row;
+	gap: .5em;
+	align-items: center;
+}
+.card-header .card-judul {
+	flex-grow: 1;
+}
+/* Style button dan input */
+button,
+input {
+	border: none;
+	outline: none;
+	text-transform: uppercase;
+	border-radius: var(--card-radius);
+	filter: brightness(.9);
+	transition: all 240ms ease-out;
+}
+button {
+	cursor: pointer;
+	padding: .5em 1.5em;
+	background-color: rgb(var(--color-button-rgb));
+	color: rgb(var(--color-button-text-rgb));
+}
+button.color-reverse {
+	background-color: rgb(var(--color-button-text-rgb));
+	color: rgb(var(--color-button-rgb));
+}
+button.warning {
+	background-color: rgb(var(--color-warning-rgb));
+}
+.input-field {
+	border-radius: var(--card-radius);
+  	overflow: hidden;
+}
+input {
+	padding: .5em;
+	border-style: solid;
+	border-width: 1px;
+	border-image: linear-gradient(270deg, rgba(var(--color-card-rgb), .8), rgba(var(--color-card-glow-rgb),.6)) 1;
+  	box-shadow: 
+  		inset 1px 1px 3px rgba(var(--color-card-glow-rgb),.7),
+  		inset 2px 2px 6px rgba(var(--color-shadow-rgb),.3);
+  	background-color: rgb(var(--color-background-input-rgb));
+}
+.input-field input {
+	width: 100%;
+}
+button:hover,
+button:active,
+input:hover,
+input:focus {
+	filter: brightness(1.0);
+}
+
+/* Styling button sampah,close / button icon only */
+button.btn-sampah {
+	background: var(--icon-trash-outlined-url) no-repeat center;
+}
+button.btn-close {
+	align-self: baseline;
+	background: var(--icon-close-url) no-repeat center;
+}
+button.btn-sampah:hover {
+	background-image: var(--icon-trash-filled-url);
+}
+/* taruh di terakhir */
+button.icon-only {
+	min-width: 2.5em;
+	min-height: 2.5em;
+	padding: 0;
+	border-radius: 50%;
+	background-color: transparent;
+	background-size: 1.5em 1.5em; /* tidak akan berefek jika background-image belum diinisiasi */
+}
+button.icon-only:hover {
+	background-color: rgb(var(--color-background-icon-rgb));
+}
+/* Style icon tapi tidak button */
+.gambar {
+	display: block;
+	min-height: 2.5em;
+	min-width: 2.5em;
+}
+.gambar.peringatan {
+	background: var(--icon-warning-url) no-repeat center;
+	background-size: contain;
+}
+/* Mendefinisikan jenis font */
+.card .card-konten,
+.card input {
+	font-family: Raleway;
+}
+.card button {
+	font-family: Black Ops One;
+}
+/* Styiling isi card */
+.card .card-konten {
+	padding: 1em;
+	display: grid;
+	align-items: baseline;
+	grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+	gap: 1em;
+}
+/* Styling footer card */
+.card-footer {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	padding: 1em;
+}
+.card-footer button {
+	flex-grow: 1;
+}
+
+/*
+ * Styling input field untuk pencarian
+ */
+.card .search-container {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	padding: .5em;
+	gap: .5em;
+	align-items: center;
+	color: rgb(var(--color-card-header-rgb));
+	background-color: rgba(var(--color-card-background-header-rgb), .15);
+}
+.search-container > .search-field {
+	flex-grow: 1;
+	display: flex;
+  	border-radius: var(--card-radius);
+}
+.search-field button {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	padding: 0 1.5em;
+}
+.search-field input {
+	flex-grow: 1;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-right-width: 0px;
+}
+
+/*
+ * Styling subcard (card didalam card tapi bukan card)
+ */
+.card .subcard-container {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	font-size: .8em;
+}
+.subcard-container .subcard {
+	flex-grow: 1;
+	flex-basis: max-content;
+}
+
+/*
+ * Styling item didalam card
+ */
+.card-konten .list-item {
+	display: flex;
+	flex-direction: column;
+	gap: .5em;
+}
+.item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+.item > .nama-item {
+	flex: 1;
+}
+.item > .isi-item {
+	flex: 2;
+}
+/* Styling form didalam item */
+.item input {
+	font-size: .8em;
+}
+.item label,
+.item label input[type=checkbox] {
+	cursor: pointer;
+}
+button > .flag {
+	font-size: 1.2em;
+	color: rgb(var(--color-button-flag-rgb));
+}
+
+/* Styling teks buku tidak ada */
+.error-tidak-ada-buku {
+	padding: 1em;
+	text-align: center;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: rgb(var(--color-text-rgb));
+	/* Style glowing */
+	--color-text-rgb: var(--color-warning-text-rgb);
+	--color-text-glow-rgb: var(--color-warning-rgb);
+}
+.text-glow {
+	text-shadow: 
+		0 0 var(--text-shadow-step) rgb(var(--color-text-rgb)),
+		0 0 calc(2 * var(--text-shadow-step)) rgb(var(--color-text-rgb)),
+		0 0 calc(3 * var(--text-shadow-step)) rgb(var(--color-text-glow-rgb)),
+		0 0 calc(4 * var(--text-shadow-step)) rgb(var(--color-text-glow-rgb)),
+		0 0 calc(5 * var(--text-shadow-step)) rgb(var(--color-text-glow-rgb)),
+		0 0 calc(6 * var(--text-shadow-step)) rgb(var(--color-text-glow-rgb)),
+		0 0 calc(7 * var(--text-shadow-step)) rgb(var(--color-text-glow-rgb));
+}
+/* Style umum */
+.flex-center {
+	justify-content: center;
+}
+/* Style Custom Dialog */
+body.dialog-open {
+	height: 100vh;
+	overflow: hidden;
+}
+.dialog-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0,0,0, .5);
+	z-index: 9999px; /* Atur posisi di paling depan atau diatas */
+}
+.dialog-overlay .dialog {
+	flex-grow: 0;
+	flex-basis: min(80%,400px);
+}
+
+/* Style otomatis memberi nomor urut buku pada rak */
+.rak-buku {
+	counter-reset: nomor-buku;
+}
+.buku {
+	counter-increment: nomor-buku;
+}
+.buku .card-header:before {
+	content: counter(nomor-buku) ". ";
+}
+/* Style tombol switch */
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 4em;
+	height: 2em;
+	border-radius: 2em;
+	overflow: hidden;
+}
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+.switch .slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgb(var(--color-switch-false-backgrund-rgb));
+	transition: all 400ms;
+}
+.switch .slider:before {
+	position: absolute;
+	content: '';
+	height: 1.6em;
+	width: 1.6em;
+	border-radius: 50%;
+	left: .2em;
+	bottom: .2em;
+	background-color: rgb(var(--color-switch-thumb-rgb));
+	background-image: var(--icon-moon-url);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 1em 1em;
+	transition: all  400ms;
+}
+[tema-gelap] .switch .slider:before {
+	background-image: var(--icon-sun-url);
+}
+.switch input:checked + .slider {
+	background-color: rgb(var(--color-switch-true-backgrund-rgb));
+}
+.switch input:checked + .slider:before {
+	transform: translateX(2em);
+}

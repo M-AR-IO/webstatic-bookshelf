@@ -5,39 +5,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>BookShelf Apps</title>
-    <link rel="stylesheet" href="css/color-style.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="js/data.js"></script>
 </head>
-<body style="font-size: 18px;">
+<body>
 	<header>
 		<h1 class="judul">BookShift Apps</h1>
+		<label class="switch">
+			<input type="checkbox" id="tema-slider">
+			<span class="slider"></span>
+		</label>
 	</header>
 	<section class="konten">
 		<div class="card">
-			<div class="card-header">Masukkan Buku Baru</div>
-			<div class="card-konten">
-				<form id="form-tambah-buku" action="#">
-					<div class="form-input-container">
-						<label for="judul">Judul</label>
-						<input type="text" name="judul" id="judul" required>
+			<div class="card-inner">
+				<form id="form-tambah-buku">
+					<div class="card-header">Masukkan Buku Baru</div>
+					<div class="card-konten">
+						<div class="list-item" action="#">
+							<div class="item">
+								<label for="judul" class="nama-item">Judul</label>
+								<div class="input-field isi-item">
+									<input type="text" name="judul" id="judul" required>
+								</div>
+							</div>
+							<div class="item">
+								<label for="penulis" class="nama-item">Penulis</label>
+								<div class="input-field isi-item">
+									<input type="text" name="penulis" id="penulis">
+								</div>
+							</div>
+							<div class="item">
+								<label for="tahun" class="nama-item">Tahun</label>
+								<div class="input-field isi-item">
+									<input type="number" min="1500" max="2500" value="2001" name="tahun" id="tahun">
+								</div>
+							</div>
+							<div class="item">
+								<label for="selesai-dibaca" class="isi-item">Selesai dibaca<input type="checkbox" name="selesai-dibaca" id="selesai-dibaca"></label>
+							</div>
+						</div>
 					</div>
-					<div class="form-input-container">
-						<label for="penulis">Penulis</label>
-						<input type="text" name="penulis" id="penulis">
-					</div>
-					<div class="form-input-container">
-						<label for="tahun">Tahun</label>
-						<input type="number" min="1500" max="2500" value="1998" name="tahun" id="tahun">
-					</div>
-					<div class="form-input-container">
-						<label for="selesai-dibaca">Selesai dibaca<input type="checkbox" name="selesai-dibaca" id="selesai-dibaca"></label>
-					</div>
-					<div class="form-input-container">
+					<div class="card-footer">
 						<button>Masukkan Buku ke rak <span id="label-rak-dalam-btn" class="flag">Belum selesai dibaca</span></button>
 					</div>
 				</form>
 			</div>
 		</div>
+		<div class="card growing">
+			<div class="card-inner">
+				<div class="card-header">Rak Buku</div>
+				<div class="search-container">
+					<label for="cari-buku">Cari Buku</label>
+					<div class="search-field input-field">
+						<input type="text" name="cari-buku" id="cari-buku">
+						<button id="btn-cari">Cari</button>
+					</div>
+				</div>
+				<div class="subcard-container" id="rak-buku">
+					
+				</div>
+			</div>
+		</div>
 	</section>
+
+	<script type="text/javascript" src="js/fungsi.js"></script>
+	<!-- script didownload di latar belakang
+		 dan dijalankan setelah dokumen selesai dimuat (defer)
+	 -->
+	<script type="text/javascript" src="js/main.js" defer></script>
 </body>
 </html>

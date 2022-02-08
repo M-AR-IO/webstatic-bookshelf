@@ -1,103 +1,92 @@
-@import url('https://fonts.googleapis.com/css?family=Black+Ops+One');
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
-
-* {
-	box-sizing: border-box;
-}
-
-html,
-body {
-	font-family: Black Ops One;
-	margin: 0;
-	padding: 0;
-	min-height: 100vh;
-	background-color: var(--color-dark);
-	color: var(--color-flat-white);
-}
-header {
-	padding: 1em;
-	background-color: var(--color-flat-dark);
-	box-shadow: 0 0 calc(2px + .2em) var(--color-darker);
-}
-header > .judul {
-	font-size: 2em;
-	color: var(--color-green);
-	margin: 0;
-}
-.konten {
-	display: flex;
-	flex-wrap: wrap;
-	padding: 1em;
-	gap: 1em;
-}
-.card {
-	--card-radius: 5px;
-	background-color: var(--color-card-dark);
-	border-radius: var(--card-radius);
-	overflow: hidden;
-	flex-basis: 30%;
-}
-.card-header {
-	font-size: 1.3em;
-	margin: 0;
-	padding: 1em;
-	background-color: rgba(0, 0, 0, .15);
-	text-align: center;
-}
-.card .card-konten {
-	font-family: Raleway;
-
-	padding: 1em;
-}
-.card-konten form {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	gap: .5em;
-}
-.form-input-container {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-}
-.form-input-container > * {
-	flex: 1;
-}
-.form-input-container > input,
-.form-input-container > button {
-	background-color: rgba(var(--color-flat-white-rgb),.8);
-	border: 2px solid var(--color-flat-dark);
-	border-radius: var(--card-radius);
-	padding: .5em;
-	font-size: .8em;
-	outline: none;
-}
-.form-input-container > button,
-.form-input-container > label,
-.form-input-container > label > input[type=checkbox] {
-	cursor: pointer;
-}
-.form-input-container > input:hover,
-.form-input-container > input:focus,
-.form-input-container > button:hover {
-	background-color: rgb(var(--color-flat-white-rgb));
-}
-button > .flag {
-	font-weight: bold;
-}
-
-/*
- * Responsive style
+:root{
+/* variabel umum
  */
-@media only screen and (max-width: 1120px) {
-	.form-input-container {
-		flex-direction: column;
-		align-items: unset;
-	}
+	--color-darker: #090811;
+	--color-dark: #2B2A33;
+	--color-dark-rgb: 43,42,51;
+	--color-flat-dark: #38383D;
+	--color-green: #04CC6D;
+	--color-dark-green: #04996D;
+	--color-dark-green-darker: #00442A;
+
+	--color-white: #ffffff;
+	--color-white-rgb: 255,255,255;
+	--color-flat-white: #dddddd;
+	--color-flat-white-rgb: 221,221,221;
+
+	--color-light: #fafafa;
+	--color-light-rgb: 250,250,250;
+
+	--color-card-dark: #53525e;
+	--color-card-dark-rgb: 83,82,94;
+
+	--color-blue-rgb: 50,100,255;
+
+	--color-warning: #ff0000;
+
+/* variabel yang digunakan project
+ * tema terang
+ */
+	--color-background-rgb: 240,240,240;
+	--color-text-rgb: 50,50,50;
+	--color-background-header-rgb: var(--color-blue-rgb);
+	--color-header-rgb: var(--color-white-rgb);
+	--color-shadow: #000000aa;
+	--color-shadow-rgb: 0,0,0;
+	--color-card-rgb: var(--color-white-rgb);
+	--color-card-header-rgb: var(--color-blue-rgb);
+	--color-card-background-header-rgb: var(--color-blue-rgb);
+	--color-card-glow-rgb: var(--color-blue-rgb);
+	--color-background-icon-rgb: 150,255,255;
+	--color-button-rgb: var(--color-blue-rgb);
+	--color-button-text-rgb: var(--color-flat-white-rgb);
+	--color-warning-rgb: 255,0,0;
+	--color-warning-text-rgb: var(--color-white-rgb);
+	--color-background-input-rgb: 245,255,245;
+	--color-button-flag-rgb: 0,200,0;
+	--color-switch-thumb-rgb: var(--color-flat-white-rgb);
+	--color-switch-false-backgrund-rgb: 100,150,255;
+	--color-switch-true-backgrund-rgb: var(--color-flat-white-rgb);
+
+
+	--root-font-size: 18px;
+	--card-radius: 5px;
+	--padding: .9rem;
+	--padding-small: calc(var(--padding) / 2);
+	--padding-smaller: calc(var(--padding-small) / 2);
+	--text-shadow-step: 5px;
+	--color-text-glow-rgb: 255,255,255;
+
+	
+
+	--icon-warning-url: url(../assets/warning-circle-big.svg);
+	--icon-trash-outlined-url: url("../assets/trash-outline.svg");
+	--icon-trash-filled-url: url("../assets/trash-fill.svg");
+	--icon-close-url: url("../assets/cross.svg");
+	--icon-moon-url: url("../assets/moon.svg");
+	--icon-sun-url: url("../assets/sun.svg");
+
 }
-@media only screen and (max-width: 640px) {
-	.card {
-		flex-basis: 100%;
-	}
+/* override variable untuk tema-gelap */
+[tema-gelap]{
+	--color-background-rgb: 43,42,51;
+	--color-text-rgb: var(--color-flat-white-rgb);
+	--color-background-header-rgb: 56,56,61;
+	--color-header-rgb: 0,200,100;
+	--color-shadow: #000000aa;
+	--color-card-rgb: 83,82,94;
+	--color-card-header-rgb: 255,255,255;
+	--color-card-background-header-rgb: 0,0,0;
+	--color-card-glow-rgb: 250,250,250;
+	--color-background-icon-rgb: 56,56,61;
+	--color-button-rgb: 4, 204, 109;
+	--color-button-text-rgb: 255,255,255;
+	--color-warning-rgb: 255,0,0;
+	--color-warning-text-rgb: var(--color-text-rgb);
+	--color-background-input-rgb: 250,250,250;
+	--color-button-flag-rgb: 50,50,50;
+	--color-switch-thumb-rgb: var(--color-card-rgb);
+	--color-switch-false-backgrund-rgb: 100,150,255;
+	--color-switch-true-backgrund-rgb: var(--color-flat-white-rgb);
+
 }
