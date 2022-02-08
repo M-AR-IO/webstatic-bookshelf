@@ -1,28 +1,13 @@
 :root{
 /* variabel umum
  */
-	--color-darker: #090811;
-	--color-dark: #2B2A33;
-	--color-dark-rgb: 43,42,51;
-	--color-flat-dark: #38383D;
-	--color-green: #04CC6D;
-	--color-dark-green: #04996D;
-	--color-dark-green-darker: #00442A;
-
-	--color-white: #ffffff;
 	--color-white-rgb: 255,255,255;
-	--color-flat-white: #dddddd;
 	--color-flat-white-rgb: 221,221,221;
-
-	--color-light: #fafafa;
-	--color-light-rgb: 250,250,250;
-
-	--color-card-dark: #53525e;
-	--color-card-dark-rgb: 83,82,94;
-
+	--color-flat-white2-rgb: 250,250,250;
 	--color-blue-rgb: 50,100,255;
-
-	--color-warning: #ff0000;
+	--color-green-rgb: 0,200,100;
+	--color-red-rgb: 255,0,0;
+	--color-black-rgb: 0,0,0;
 
 /* variabel yang digunakan project
  * tema terang
@@ -31,8 +16,8 @@
 	--color-text-rgb: 50,50,50;
 	--color-background-header-rgb: var(--color-blue-rgb);
 	--color-header-rgb: var(--color-white-rgb);
-	--color-shadow: #000000aa;
-	--color-shadow-rgb: 0,0,0;
+	--color-shadow: rgba(var(--color-black-rgb),.88);
+	--color-shadow-rgb: var(--color-black-rgb);
 	--color-card-rgb: var(--color-white-rgb);
 	--color-card-header-rgb: var(--color-blue-rgb);
 	--color-card-background-header-rgb: var(--color-blue-rgb);
@@ -72,18 +57,18 @@
 	--color-background-rgb: 43,42,51;
 	--color-text-rgb: var(--color-flat-white-rgb);
 	--color-background-header-rgb: 56,56,61;
-	--color-header-rgb: 0,200,100;
+	--color-header-rgb: var(--color-green-rgb);
 	--color-shadow: #000000aa;
 	--color-card-rgb: 83,82,94;
-	--color-card-header-rgb: 255,255,255;
+	--color-card-header-rgb: var(--color-white-rgb);
 	--color-card-background-header-rgb: 0,0,0;
-	--color-card-glow-rgb: 250,250,250;
+	--color-card-glow-rgb: var(--color-flat-white2-rgb);
 	--color-background-icon-rgb: 56,56,61;
-	--color-button-rgb: 4, 204, 109;
-	--color-button-text-rgb: 255,255,255;
-	--color-warning-rgb: 255,0,0;
+	--color-button-rgb: var(--color-green-rgb);
+	--color-button-text-rgb: var(--color-white-rgb);
+	--color-warning-rgb: var(--color-red-rgb);
 	--color-warning-text-rgb: var(--color-text-rgb);
-	--color-background-input-rgb: 250,250,250;
+	--color-background-input-rgb: var(--color-flat-white2-rgb);
 	--color-button-flag-rgb: 50,50,50;
 	--color-switch-thumb-rgb: var(--color-card-rgb);
 	--color-switch-false-backgrund-rgb: 100,150,255;
