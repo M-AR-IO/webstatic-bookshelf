@@ -76,12 +76,12 @@ button,
 input {
 	border: none;
 	outline: none;
-	text-transform: uppercase;
 	border-radius: var(--card-radius);
 	filter: brightness(.9);
 	transition: all 240ms ease-out;
 }
 button {
+	text-transform: uppercase;
 	cursor: pointer;
 	padding: .5em 1.5em;
 	background-color: rgb(var(--color-button-rgb));
