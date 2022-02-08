@@ -23,15 +23,19 @@ document.addEventListener('DOMContentLoaded',function(){
 	btnCari.addEventListener('click',function(){
 		cariBuku(fieldCari.value);
 	});
+	temaSlider.checked = isThemeDark();
 	temaSlider.addEventListener('change',function(event){
-		if (event.currentTarget.checked) {
+		if (isThemeDark(event.currentTarget.checked)) {
 			document.body.setAttribute('tema-gelap','');
 		} else {
 			document.body.removeAttribute('tema-gelap');
 		}
-	})
+	});
 	window.addEventListener('load',function(){
 		cariBuku(fieldCari.value);
+		if (isThemeDark()) {
+			document.body.setAttribute('tema-gelap','');
+		}
 	});
 
 	if (isStorageExist()) {

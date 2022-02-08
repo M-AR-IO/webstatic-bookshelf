@@ -53,6 +53,21 @@ function isStorageExist() {
 	}
 	return true;
 }
+function isThemeDark() {
+	if (isStorageExist()) {
+		const darkThemeKey = 'dark-theme';
+		if (arguments.length > 0) {
+			let isDark = arguments[0];
+			localStorage.setItem(darkThemeKey,isDark);
+			return isDark;
+		}
+		let data = localStorage.getItem(darkThemeKey);
+		if (data && data !== 'false') {
+			return true;
+		}
+	}
+	return false;
+}
 
 // add word auto breaker into html element
 function getTextWithAutoBreaker(text,maxLength = 5) {
